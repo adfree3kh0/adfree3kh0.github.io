@@ -81,3 +81,22 @@ a {
   font-size: 16px;
   border-radius: 20px;
 }
+
+@media (min-width: 1024px) {
+  .sticky-sidebar {
+    display: block;
+    position: fixed;
+    top: 100px;
+    width: 300px;
+    height: 600px;
+    z-index: 10;
+  }
+
+  .left-sidebar {
+    left: 0;
+  }
+
+  .right-sidebar {
+    right: 0;
+  }
+}
