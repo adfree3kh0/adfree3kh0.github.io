@@ -33,20 +33,24 @@ document.addEventListener("DOMContentLoaded", function() {
     position: fixed;
     top: 10px;
     left: 10px;
-    background-color: transparent;
-    color: black;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #000;
     font-size: 12px;
     font-weight: 600;
-    border: 1px solid black;
+    border: 2px solid #000;
+    outline: 2px solid #fff;
     padding: 5px 20px;
     border-radius: 5px;
     text-decoration: none;
     transition: all 0.3s ease;
     z-index: 100;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
   }
   .all-games-button:hover {
-    background-color: black;
-    color: white;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    border-color: #fff;
+    outline-color: #000;
   }`;
   document.head.appendChild(style);
 
