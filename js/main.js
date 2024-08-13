@@ -20,14 +20,33 @@ document.addEventListener("DOMContentLoaded", function() {
   document.head.appendChild(headScript);
 
   const style = document.createElement("style");
-  style.innerHTML = `.floating {
+  style.innerHTML = `
+  .floating {
     position: fixed;
     bottom: 90px;
     left: 0;
     width: 300px
     height: 250px;
     z-index: 100;
-
+  }
+  .all-games-button {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background-color: transparent;
+    color: black;
+    font-size: 12px;
+    font-weight: 600;
+    border: 1px solid black;
+    padding: 5px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    z-index: 100;
+  }
+  .all-games-button:hover {
+    background-color: black;
+    color: white;
   }`;
   document.head.appendChild(style);
 
@@ -40,4 +59,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
   videoDiv.appendChild(videoScript);
   document.body.appendChild(videoDiv);
+
+
+  // add a nice button at the top left of the screen with the text "All Games" that links to the projects page
+  const allGamesButton = document.createElement("a");
+  allGamesButton.className = "all-games-button";
+  allGamesButton.textContent = "All Games";
+  allGamesButton.href = "/projects";
+  document.body.appendChild(allGamesButton);
 });
