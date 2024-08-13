@@ -12,9 +12,25 @@ document.addEventListener("DOMContentLoaded", function() {
   stats.setAttribute("src", "https://stats.senty.com.au/js/script.js");
   document.head.append(stats);
 
+  // create a style element with floating left-bottom position for the video
+  const style = document.createElement("style");
+  style.innerHTML = `.floating {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 300px
+    height: 250px;
+    z-index: 100;
+
+  }`;
+  document.head.appendChild(style);
+
+
   // Create and insert the video div and script
   const videoDiv = document.createElement("div");
-  videoDiv.className = "aplvideo";
+  videoDiv.className = "aplvideo floating";
+
+
 
   const videoScript = document.createElement("script");
   videoScript.async = true;
