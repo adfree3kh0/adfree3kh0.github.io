@@ -90,6 +90,8 @@ a {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  max-width: 976px;
+  margin: 0 auto;
 }
 .container {
   padding: 10px;
