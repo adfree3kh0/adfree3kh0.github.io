@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function() {
   const style = document.createElement("style");
   style.innerHTML = `.floating {
     position: fixed;
-    bottom: 0;
+    bottom: 90px;
     left: 0;
     width: 300px
     height: 250px;
