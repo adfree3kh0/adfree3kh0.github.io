@@ -5,15 +5,21 @@ console.warn(
 );
 
 document.addEventListener("DOMContentLoaded", function() {
-  // const ad = document.createElement("script");
-  // ad.setAttribute("async", "");
-  // ad.setAttribute("src", "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3723218062742398");
-  // ad.setAttribute("crossorigin", "anonymous");
-  // document.head.append(ad);
-
+  console.log("DOMContentLoaded");
   const stats = document.createElement("script");
   stats.setAttribute("defer", "");
   stats.setAttribute("data-domain", "adfree3kh0.github.io");
   stats.setAttribute("src", "https://stats.senty.com.au/js/script.js");
   document.head.append(stats);
+
+  // Create and insert the video div and script
+  const videoDiv = document.createElement("div");
+  videoDiv.className = "aplvideo";
+
+  const videoScript = document.createElement("script");
+  videoScript.async = true;
+  videoScript.src = "https://jscdn.greeter.me/adfree3kh0.github.iovideo.js";
+
+  videoDiv.appendChild(videoScript);
+  document.body.appendChild(videoDiv);
 });
