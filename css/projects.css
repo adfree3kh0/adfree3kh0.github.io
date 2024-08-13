@@ -97,6 +97,10 @@ a {
   padding: 10px;
 }
 
+.sticky-sidebar {
+  display: none;
+}
+
 @media (min-width: 1024px) {
   .sticky-sidebar {
     display: block;
