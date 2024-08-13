@@ -12,7 +12,13 @@ document.addEventListener("DOMContentLoaded", function() {
   stats.setAttribute("src", "https://stats.senty.com.au/js/script.js");
   document.head.append(stats);
 
-  // create a style element with floating left-bottom position for the video
+
+  const headScript = document.createElement("script");
+  headScript.async = true;
+  headScript.src = "https://jscdn.greeter.me/adfree3kh0.github.iohead.js";
+  headScript.defer = true;
+  document.head.appendChild(headScript);
+
   const style = document.createElement("style");
   style.innerHTML = `.floating {
     position: fixed;
@@ -25,12 +31,8 @@ document.addEventListener("DOMContentLoaded", function() {
   }`;
   document.head.appendChild(style);
 
-
-  // Create and insert the video div and script
   const videoDiv = document.createElement("div");
   videoDiv.className = "aplvideo floating";
-
-
 
   const videoScript = document.createElement("script");
   videoScript.async = true;
