@@ -1,9 +1,3 @@
-console.warn(
-  "%cNote!",
-  "color: purple; font-weight: 600; background: yellow; padding: 0 5px; border-radius: 5px",
-  "If you want to add this game to your site, please reach out at our email: hello@senty.com.au\nPlease do not just add them without asking us first! Thank you!"
-);
-
 document.addEventListener("DOMContentLoaded", function() {
   console.log("DOMContentLoaded");
   const stats = document.createElement("script");
