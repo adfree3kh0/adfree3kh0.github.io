@@ -76,6 +76,7 @@ a {
   border-radius: 30px;
   width: 300px;
   height: 300px;
+  object-fit: cover;
 }
 .game-title {
   font-size: 30px;
