@@ -122,7 +122,7 @@ async function loadScripts() {
         margin: 0 auto;
         border-radius: 10px;
       }
-      .more-games-button {
+      .all-games-button {
         position: fixed;
         top: 100px;
         left: 10px;
