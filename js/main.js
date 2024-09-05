@@ -97,6 +97,31 @@ function createMoreGamesButton() {
 async function loadScripts() {
   try {
     addStyles(`
+      .ads {
+        text-align: center;
+      }
+
+      .side_ad_left {
+        top: 50px;
+        left: 5px;
+        position: fixed;
+      }
+
+      .side_ad_right {
+        top: 50px;
+        right: 5px;
+        position: fixed;
+      }
+
+      .panels {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        background-color: transparent;
+        height: 250px;
+        max-width: 950px;
+        margin: 0 auto;
+        border-radius: 10px;
+      }
       .more-games-button {
         position: fixed;
         top: 100px;
@@ -189,9 +214,15 @@ async function loadScripts() {
 
     createAdDisplayDiv('adfree3kh0_github_io_anchor_bottom_responsive', 'ads');
 
-    createAdDisplayDiv('adfree3kh0_github_io_sidebar_left_desktop', 'ads');
+    createAdDisplayDiv(
+      'adfree3kh0_github_io_sidebar_left_desktop',
+      'ads side_ad_left'
+    );
 
-    createAdDisplayDiv('adfree3kh0_github_io_sidebar_right_desktop', 'ads');
+    createAdDisplayDiv(
+      'adfree3kh0_github_io_sidebar_right_desktop',
+      'ads side_ad_right'
+    );
 
     createMoreGamesButton();
 
