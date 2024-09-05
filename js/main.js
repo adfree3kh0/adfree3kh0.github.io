@@ -1,11 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-  console.log('DOMContentLoaded');
-  const stats = document.createElement('script');
-  stats.setAttribute('defer', '');
-  stats.setAttribute('data-domain', 'adfree3kh0.github.io');
-  stats.setAttribute('src', 'https://stats.senty.com.au/js/script.js');
-  document.head.append(stats);
-
   const videoDiv = document.createElement('div');
   videoDiv.className = 'aplvideo floating';
 
