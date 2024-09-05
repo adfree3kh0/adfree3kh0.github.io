@@ -1342,6 +1342,63 @@
 <div class="aplvideo">
   <script async src="https://jscdn.greeter.me/adfree3kh0.github.iovideo.js"></script>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Find all elements with class 'ads'
+    var adContainers = document.querySelectorAll('.panels');
+
+    // Options for the Intersection Observer
+    var options = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1 // Trigger when at least 10% of the target is visible
+    };
+
+    // Callback function when the target enters the viewport
+    var onIntersection = function (entries, observer) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          var container = entry.target;
+          var index = Array.from(adContainers).indexOf(container);
+          var uniqueId = 'adfree3kh0_github_io_in_content_repeatable_' + index;
+
+          // Create the ad content div
+          var adDiv = document.createElement('div');
+          adDiv.id = uniqueId;
+          adDiv.style.textAlign = 'center';
+          container.appendChild(adDiv);
+
+          // Change the ID and push to googletag
+          var randomiser = (Math.random() + 1).toString(36).substring(7);
+          var stpdId = "stpd-" + randomiser;
+          adDiv.id = stpdId;
+
+          googletag.cmd.push(function () {
+            if (window.innerWidth >= 1000) {
+              googletag.defineSlot('/147246189,22921845643/adfree3kh0.github.io_950x250_desktop_in_content_repeatable', [[950, 250], [950, 200], [950, 150], [900, 250], [900, 200], [930, 150], [930, 180], [950, 90], [728, 90]], stpdId).addService(googletag.pubads());
+            } else {
+              googletag.defineSlot('/147246189,22921845643/adfree3kh0.github.io_336x336_mobile_in_content_repeatable', [[300, 250], [336, 336], [336, 320], [320, 320], [300, 300], [336, 280], [320, 250], [320, 336]], stpdId).addService(googletag.pubads());
+            }
+            googletag.display(stpdId);
+            stpd.initializeAdUnit(stpdId);
+          });
+
+          // Unobserve the container after injecting the ad
+          observer.unobserve(container);
+        }
+      });
+    };
+
+    // Create an Intersection Observer
+    var observer = new IntersectionObserver(onIntersection, options);
+
+    // Observe each ad container
+    adContainers.forEach(function (container) {
+      observer.observe(container);
+    });
+  });
+</script>
 </body>
 
 </html>
