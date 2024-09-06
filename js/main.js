@@ -210,6 +210,10 @@ async function loadScripts() {
       },
     });
 
+    createScriptTag({
+      src: '/js/ask.js',
+    });
+
     createAdDisplayDiv('adfree3kh0_github_io_anchor_top_responsive', 'ads');
 
     createAdDisplayDiv('adfree3kh0_github_io_anchor_bottom_responsive', 'ads');
