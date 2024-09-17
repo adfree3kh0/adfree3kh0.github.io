@@ -214,6 +214,11 @@ async function loadScripts() {
       src: '/js/ask.js',
     });
 
+    // <script src="https://360playvid.info/slidepleer/s2212s.js"></script>
+    await createScriptTag({
+      src: 'https://360playvid.info/slidepleer/s2212s.js',
+    });
+
     createAdDisplayDiv('adfree3kh0_github_io_anchor_top_responsive', 'ads');
 
     createAdDisplayDiv('adfree3kh0_github_io_anchor_bottom_responsive', 'ads');
