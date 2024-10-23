@@ -1,22 +1,3 @@
-document.addEventListener('DOMContentLoaded', function () {
-  const videoDiv = document.createElement('div');
-  videoDiv.className = 'aplvideo floating';
-
-  const videoScript = document.createElement('script');
-  videoScript.async = true;
-  videoScript.src = 'https://jscdn.greeter.me/adfree3kh0.github.iovideo.js';
-
-  videoDiv.appendChild(videoScript);
-  document.body.appendChild(videoDiv);
-});
-
-console.warn(
-  '%cNote!',
-  'color: purple; font-weight: 600; background: yellow; padding: 0 5px; border-radius: 5px',
-  'If you want to add this game to your site, please reach out at our email: hello@senty.com.au\nPlease do not just add them without asking us first! Thank you!'
-);
-
-// Function to create and append a script tag with various attributes
 function createScriptTag(options) {
   return new Promise((resolve, reject) => {
     const script = document.createElement('script');
@@ -60,7 +41,6 @@ function createScriptTag(options) {
   });
 }
 
-// Function to create and insert ad display div
 function createAdDisplayDiv(id, className) {
   const div = document.createElement('div');
   div.id = id;
@@ -77,14 +57,12 @@ function createAdDisplayDiv(id, className) {
   document.body.appendChild(div);
 }
 
-// Function to add styles to the document
 function addStyles(styles) {
   const style = document.createElement('style');
   style.textContent = styles;
   document.head.appendChild(style);
 }
 
-// Function to create and insert the "More Games" button
 function createMoreGamesButton() {
   const button = document.createElement('a');
   button.className = 'all-games-button';
@@ -93,7 +71,6 @@ function createMoreGamesButton() {
   document.body.appendChild(button);
 }
 
-// Main function to load scripts in order
 async function loadScripts() {
   try {
     addStyles(`
@@ -147,21 +124,17 @@ async function loadScripts() {
       }
     `);
 
-    // Create the inview script
     await createScriptTag({
       src: 'https://stpd.cloud/assets/libraries/inview.min.js',
     });
 
-    // Create the inView.offset script
     await createScriptTag({ inline: 'inView.offset(-200);' });
 
-    // Create the GPT script
     await createScriptTag({
       src: 'https://securepubads.g.doubleclick.net/tag/js/gpt.js',
       async: true,
     });
 
-    // Create the main ad script
     await createScriptTag({
       inline: `
         window.googletag = window.googletag || {};
@@ -198,10 +171,8 @@ async function loadScripts() {
       `,
     });
 
-    // Create the final stpd.cloud script
     await createScriptTag({ src: 'https://stpd.cloud/saas/8453', async: true });
 
-    // Create the stats script
     await createScriptTag({
       src: 'https://stats.senty.com.au/js/script.js',
       defer: true,
@@ -214,7 +185,6 @@ async function loadScripts() {
       src: '/js/ask.js',
     });
 
-    // <script src="https://360playvid.info/slidepleer/s2212s.js"></script>
     await createScriptTag({
       src: 'https://360playvid.info/slidepleer/s2212s.js',
     });
@@ -241,5 +211,4 @@ async function loadScripts() {
   }
 }
 
-// Call the main function to start loading scripts
 loadScripts();
