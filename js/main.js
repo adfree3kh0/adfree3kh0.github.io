@@ -1,74 +1,104 @@
 function createScriptTag(options) {
   return new Promise((resolve, reject) => {
-    const script = document.createElement('script');
+    const script = document.createElement('script')
 
     if (options.src) {
-      script.src = options.src;
-      script.onload = resolve;
-      script.onerror = reject;
+      script.src = options.src
+      script.onload = resolve
+      script.onerror = reject
     } else {
-      resolve();
+      resolve()
     }
 
     if (options.inline) {
-      script.textContent = options.inline;
+      script.textContent = options.inline
     }
 
     if (options.async) {
-      script.async = true;
+      script.async = true
     }
 
     if (options.defer) {
-      script.defer = true;
+      script.defer = true
     }
 
     if (options.crossOrigin) {
-      script.crossOrigin = options.crossOrigin;
+      script.crossOrigin = options.crossOrigin
     }
 
     if (options.attributes) {
       for (const [key, value] of Object.entries(options.attributes)) {
-        script.setAttribute(key, value);
+        script.setAttribute(key, value)
       }
     }
 
-    document.head.appendChild(script);
+    document.head.appendChild(script)
 
     if (!options.src) {
       // If it's an inline script, resolve immediately after appending
-      resolve();
+      resolve()
     }
-  });
+  })
 }
 
 function createAdDisplayDiv(id, className) {
-  const div = document.createElement('div');
-  div.id = id;
-  div.className = className;
+  const div = document.createElement('div')
+  div.id = id
+  div.className = className
 
-  const script = document.createElement('script');
+  const script = document.createElement('script')
   script.textContent = `
     googletag.cmd.push(function () { 
       googletag.display('${id}'); 
     });
-  `;
+  `
 
-  div.appendChild(script);
-  document.body.appendChild(div);
+  div.appendChild(script)
+  document.body.appendChild(div)
 }
 
 function addStyles(styles) {
-  const style = document.createElement('style');
-  style.textContent = styles;
-  document.head.appendChild(style);
+  const style = document.createElement('style')
+  style.textContent = styles
+  document.head.appendChild(style)
 }
 
 function createMoreGamesButton() {
-  const button = document.createElement('a');
-  button.className = 'all-games-button';
-  button.textContent = 'All Games';
-  button.href = '/projects';
-  document.body.appendChild(button);
+  const button = document.createElement('a')
+  button.className = 'all-games-button'
+  button.textContent = 'All Games'
+  button.href = '/projects'
+  document.body.appendChild(button)
+}
+
+function giveReward() {
+  googletag.pubads().removeEventListener('rewardedSlotClosed', dismissReward)
+}
+
+function dismissReward(evt) {
+  googletag.destroySlots([evt.rewardedSlot])
+}
+
+function showAd() {
+  googletag.cmd.push(function () {
+    var rewardedSlot = googletag.defineOutOfPageSlot(
+      '/147246189,22921845643/adfree3kh0.github.io_rewarded',
+      googletag.enums.OutOfPageFormat.REWARDED
+    )
+    if (rewardedSlot) {
+      rewardedSlot.addService(googletag.pubads())
+    }
+    googletag.pubads().addEventListener('rewardedSlotReady', function (evt) {
+      evt.makeRewardedVisible()
+    })
+    googletag.pubads().addEventListener('rewardedSlotClosed', dismissReward)
+    googletag.pubads().addEventListener('rewardedSlotGranted', function () {
+      giveReward()
+    })
+
+    googletag.display(rewardedSlot)
+    googletag.pubads().refresh([rewardedSlot])
+  })
 }
 
 async function loadScripts() {
@@ -122,18 +152,18 @@ async function loadScripts() {
         border-color: #fff;
         outline-color: #000;
       }
-    `);
+    `)
 
     await createScriptTag({
       src: 'https://stpd.cloud/assets/libraries/inview.min.js',
-    });
+    })
 
-    await createScriptTag({ inline: 'inView.offset(-200);' });
+    await createScriptTag({ inline: 'inView.offset(-200);' })
 
     await createScriptTag({
       src: 'https://securepubads.g.doubleclick.net/tag/js/gpt.js',
       async: true,
-    });
+    })
 
     await createScriptTag({
       inline: `
@@ -169,9 +199,9 @@ async function loadScripts() {
           googletag.display(interstitialSlot);
         });
       `,
-    });
+    })
 
-    await createScriptTag({ src: 'https://stpd.cloud/saas/8453', async: true });
+    await createScriptTag({ src: 'https://stpd.cloud/saas/8453', async: true })
 
     await createScriptTag({
       src: 'https://stats.senty.com.au/js/script.js',
@@ -179,36 +209,27 @@ async function loadScripts() {
       attributes: {
         'data-domain': 'adfree3kh0.github.io',
       },
-    });
-
-    createScriptTag({
-      src: '/js/ask.js',
-    });
+    })
 
     await createScriptTag({
       src: 'https://360playvid.info/slidepleer/s2212s.js',
-    });
+    })
 
-    createAdDisplayDiv('adfree3kh0_github_io_anchor_top_responsive', 'ads');
+    createAdDisplayDiv('adfree3kh0_github_io_anchor_top_responsive', 'ads')
 
-    createAdDisplayDiv('adfree3kh0_github_io_anchor_bottom_responsive', 'ads');
+    createAdDisplayDiv('adfree3kh0_github_io_anchor_bottom_responsive', 'ads')
 
-    createAdDisplayDiv(
-      'adfree3kh0_github_io_sidebar_left_desktop',
-      'ads side_ad_left'
-    );
+    createAdDisplayDiv('adfree3kh0_github_io_sidebar_left_desktop', 'ads side_ad_left')
 
-    createAdDisplayDiv(
-      'adfree3kh0_github_io_sidebar_right_desktop',
-      'ads side_ad_right'
-    );
+    createAdDisplayDiv('adfree3kh0_github_io_sidebar_right_desktop', 'ads side_ad_right')
 
-    createMoreGamesButton();
+    createMoreGamesButton()
 
-    console.log('All scripts loaded successfully');
+    console.log('All scripts loaded successfully')
+    showAd()
   } catch (error) {
-    console.error('Error loading scripts:', error);
+    console.error('Error loading scripts:', error)
   }
 }
 
-loadScripts();
+loadScripts()
