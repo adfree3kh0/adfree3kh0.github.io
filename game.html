@@ -1,36 +1,67 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>3kh0 Games - Game</title>
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="stylesheet" type="text/css" href="/css/index.css" />
-    <title>3kh0</title>
-    <meta
-      name="keywords"
-      content="front-end web developer, unblocked, games, google sites, unblocked games mom, ublocked, code, coding, programmer, development, javascript, jquery, bootstrap, sass, less, git"
-    />
-    <meta
-      property="og:title"
-      content="Welcome to 3kh0.github.io, your best option for unblocked games on the internet."
-    />
-    <meta property="og:site_name" content="3kh0.github.io" />
-    <meta
-      property="og:description"
-      content="Welcome to 3kh0.github.io, your best option for unblocked games on the internet."
-    />
-    <meta
-      name="description"
-      content="Welcome to 3kh0.github.io, your best option for unblocked games on the internet."
-    />
-    <meta name="author" content="3kh0" />
+    <title>3kh0 Game loader</title>
     <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script
       defer
       data-domain="adfree3kh0.github.io"
       src="https://stats.senty.com.au/js/script.tagged-events.js"
     ></script>
-    <meta name="google-site-verification" content="0I5jWqQYG7ahDKO-xLIJWViQ8SPeE0SgnfbaXjFInkU" />
-    <meta name="ahrefs-site-verification" content="f9805fd529e993ad2b1929b09f27c0b69fbda9fad04acead603f2847527f3b52" />
+
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: rgb(117, 117, 117);
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      /* Page Content */
+      .game {
+        position: absolute;
+        color: white;
+
+        transform: scale(1.8);
+        z-index: 3;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .buttonForMenu {
+        color: white;
+        text-decoration: none;
+      }
+      #game {
+        margin-left: 300px;
+        margin-right: 300px;
+        text-align: center;
+        align-items: center;
+        overflow: hidden;
+        width: calc(100% - 600px);
+        height: calc(100% - 222px);
+      }
+      .ads {
+        text-align: center;
+      }
+      .side_ad_left {
+        top: 130px;
+        left: 5px;
+        position: fixed;
+      }
+      .side_ad_right {
+        top: 130px;
+        right: 5px;
+        position: fixed;
+      }
+    </style>
 
     <script src="https://stpd.cloud/assets/libraries/inview.min.js"></script>
     <script>
@@ -39,6 +70,37 @@
 
     <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
     <script>
+      function giveReward() {
+        googletag.pubads().removeEventListener('rewardedSlotClosed', dismissReward)
+        loadGame()
+      }
+
+      function dismissReward(evt) {
+        googletag.destroySlots([evt.rewardedSlot])
+      }
+
+      function showAd() {
+        googletag.cmd.push(function () {
+          var rewardedSlot = googletag.defineOutOfPageSlot(
+            '/147246189,22921845643/adfree3kh0.github.io_rewarded',
+            googletag.enums.OutOfPageFormat.REWARDED
+          )
+          if (rewardedSlot) {
+            rewardedSlot.addService(googletag.pubads())
+          }
+          googletag.pubads().addEventListener('rewardedSlotReady', function (evt) {
+            evt.makeRewardedVisible()
+          })
+          googletag.pubads().addEventListener('rewardedSlotClosed', dismissReward)
+          googletag.pubads().addEventListener('rewardedSlotGranted', function () {
+            giveReward()
+          })
+
+          googletag.display(rewardedSlot)
+          googletag.pubads().refresh([rewardedSlot])
+        })
+      }
+
       window.googletag = window.googletag || {}
       googletag.cmd = googletag.cmd || []
       googletag.cmd.push(function () {
@@ -225,38 +287,6 @@
       })
     </script>
     <script async src="https://stpd.cloud/saas/8453"></script>
-
-    <style>
-      body {
-        margin: 110px 0;
-      }
-
-      .ads {
-        text-align: center;
-      }
-
-      .side_ad_left {
-        top: 50px;
-        left: 5px;
-        position: fixed;
-      }
-
-      .side_ad_right {
-        top: 50px;
-        right: 5px;
-        position: fixed;
-      }
-
-      .panels {
-        padding-top: 20px;
-        padding-bottom: 20px;
-        background-color: transparent;
-        height: 250px;
-        max-width: 950px;
-        margin: 0 auto;
-        border-radius: 10px;
-      }
-    </style>
   </head>
 
   <body>
@@ -268,6 +298,8 @@
       </script>
     </div>
 
+    <!-- Anchor ad bottom, responsive -->
+
     <div id="adfree3kh0_github_io_anchor_bottom_responsive" class="ads">
       <script>
         googletag.cmd.push(function () {
@@ -275,6 +307,8 @@
         })
       </script>
     </div>
+
+    <!-- Side ad left, desktop -->
 
     <div id="adfree3kh0_github_io_sidebar_left_desktop" class="side_ad_left">
       <script>
@@ -284,6 +318,8 @@
       </script>
     </div>
 
+    <!-- Side ad right, desktop -->
+
     <div id="adfree3kh0_github_io_sidebar_right_desktop" class="side_ad_right">
       <script>
         googletag.cmd.push(function () {
@@ -292,164 +328,78 @@
       </script>
     </div>
 
-    <h1 id="title">
-      3kh0.github.io<br />
-      <span class="subtitle">Play unblocked games here</span>
-    </h1>
-    <div class="panels"></div>
-    <p class="text-center">
-      <a href="/projects.html" id="gs">Get Started</a>
-    </p>
-
-    <div class="panels"></div>
-    <p id="intro" class="text-center">
-      Welcome to 3kh0.github.io, your best option for unblocked games on the internet.<br />
-      But dont just take that from me, take it from the people who use this site!
-    </p>
-    <!-- Start Review section -->
-    <div class="flex-container">
-      <div class="card-wrapper">
-        <div class="card text-center">
-          <img class="card-img-top" src="/img/reviews/NotJumbled86.webp" alt="NotJumbled86" />
-          <div class="card-body">
-            <h3>NotJumbled86</h3>
-            <p class="card-text">
-              10/10 Site, it is easy to use and has a lot of features. When it gets blocked, you can just deploy your
-              own copy of the site!
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="card-wrapper">
-        <div class="card text-center">
-          <img class="card-img-top" src="/img/reviews/Piplup7575.webp" alt="Piplup7575" />
-          <div class="card-body">
-            <h3>Piplup7575</h3>
-            <p class="card-text">10/10 would meme again. i am totally not one of the people working on the site...</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="card-wrapper">
-        <div class="card text-center">
-          <img class="card-img-top" src="/img/reviews/DreamXD.webp" alt="DreamXD" />
-          <div class="card-body">
-            <h3>DreamXD</h3>
-            <p class="card-text">
-              amazing site, i play on it everyday, super fun games and the site looks fire. it never gets blocked for
-              me. the site is just good, everyone at my school plays it
-            </p>
-          </div>
-        </div>
-      </div>
+    <iframe frameborder="0" id="game" src="" allowfullscreen></iframe>
+    <div
+      style="
+        cursor: pointer;
+        position: fixed;
+        border-radius: 15px;
+        color: rgb(224, 224, 224);
+        background-color: #1d1d1dc0;
+        left: 0;
+        bottom: 104px;
+        margin: 10px;
+      "
+      id="Menu"
+    >
+      <a href="/projects.html" class="material-icons buttonForMenu" style="margin: 5px"> arrow_back </a>
+      <span class="material-icons buttonForMenu" style="margin: 5px" onclick="makeFullScreen()"> fullscreen </span>
     </div>
-    <!-- End Review section -->
-    <p class="text-center">
-      What are you waiting for? Go find your next favorite game <a href="/projects.html">in our wide list of games</a>.
-      Or you can view the <a href="/dump/changelog.txt">changelog here</a>!
-    </p>
-
-    <div class="panels"></div>
-
     <script src="https://360playvid.info/slidepleer/s2212s.js"></script>
-
-    <p class="text-center">
-      © 3kh0, 2022. Unauthorized use and/or duplication of this material without permission from 3kh0 is strictly
-      prohibited. Please contact Echo at <a href="ADFREE3KH0@GMAIL.COM">ADFREE3KH0@GMAIL.COM</a> for information.
-    </p>
-    <footer>
-      <p class="text-center">
-        <a href="/privacy">Privacy Policy</a> |
-        <a href="/projects">Projects </a>
-      </p>
-    </footer>
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        // Find all elements with class 'ads'
-        var adContainers = document.querySelectorAll('.panels')
-
-        // Options for the Intersection Observer
-        var options = {
-          root: null,
-          rootMargin: '0px',
-          threshold: 0.1, // Trigger when at least 10% of the target is visible
-        }
-
-        // Callback function when the target enters the viewport
-        var onIntersection = function (entries, observer) {
-          entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-              var container = entry.target
-              var index = Array.from(adContainers).indexOf(container)
-              var uniqueId = 'adfree3kh0_github_io_in_content_repeatable_' + index
-
-              // Create the ad content div
-              var adDiv = document.createElement('div')
-              adDiv.id = uniqueId
-              adDiv.style.textAlign = 'center'
-              container.appendChild(adDiv)
-
-              // Change the ID and push to googletag
-              var randomiser = (Math.random() + 1).toString(36).substring(7)
-              var stpdId = 'stpd-' + randomiser
-              adDiv.id = stpdId
-
-              googletag.cmd.push(function () {
-                if (window.innerWidth >= 1000) {
-                  googletag
-                    .defineSlot(
-                      '/147246189,22921845643/adfree3kh0.github.io_950x250_desktop_in_content_repeatable',
-                      [
-                        [950, 250],
-                        [950, 200],
-                        [950, 150],
-                        [900, 250],
-                        [900, 200],
-                        [930, 150],
-                        [930, 180],
-                        [950, 90],
-                        [728, 90],
-                      ],
-                      stpdId
-                    )
-                    .addService(googletag.pubads())
-                } else {
-                  googletag
-                    .defineSlot(
-                      '/147246189,22921845643/adfree3kh0.github.io_336x336_mobile_in_content_repeatable',
-                      [
-                        [300, 250],
-                        [336, 336],
-                        [336, 320],
-                        [320, 320],
-                        [300, 300],
-                        [336, 280],
-                        [320, 250],
-                        [320, 336],
-                      ],
-                      stpdId
-                    )
-                    .addService(googletag.pubads())
-                }
-                googletag.display(stpdId)
-                stpd.initializeAdUnit(stpdId)
-              })
-
-              // Unobserve the container after injecting the ad
-              observer.unobserve(container)
-            }
-          })
-        }
-
-        // Create an Intersection Observer
-        var observer = new IntersectionObserver(onIntersection, options)
-
-        // Observe each ad container
-        adContainers.forEach(function (container) {
-          observer.observe(container)
-        })
-      })
-    </script>
   </body>
+
+  <script>
+    var isFUll = false
+    var canvas = document.getElementById('game')
+    let hh = window.innerHeight
+    let game = ''
+
+    // Get the text element
+    var textElement = document.getElementById('game')
+    textElement.height = hh
+
+    // Get the current URL
+    var currentUrl = new URL(window.location.href)
+    console.log(currentUrl)
+
+    if (currentUrl.searchParams.has('game')) {
+      game = currentUrl.searchParams.get('game')
+    }
+
+    function requestFullScreen(element) {
+      // Supports most browsers and their versions.
+      var requestMethod =
+        element.requestFullScreen ||
+        element.webkitRequestFullScreen ||
+        element.mozRequestFullScreen ||
+        element.msRequestFullscreen
+
+      if (requestMethod) {
+        // Native full screen.
+        requestMethod.call(element)
+        let hh = window.innerHeight
+
+        document.getElementById('game').height = hh
+      } else if (typeof window.ActiveXObject !== 'undefined') {
+        // Older IE.
+        var wscript = new ActiveXObject('WScript.Shell')
+        if (wscript !== null) {
+          wscript.SendKeys('{F11}')
+        }
+      }
+    }
+
+    function makeFullScreen() {
+      isFUll = true
+      requestFullScreen(canvas)
+    }
+
+    function loadGame() {
+      if (game) {
+        textElement.src = game
+      }
+    }
+
+    showAd()
+  </script>
 </html>

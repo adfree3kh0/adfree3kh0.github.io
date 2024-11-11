@@ -232,4 +232,4 @@ async function loadScripts() {
   }
 }
 
-loadScripts()
+// loadScripts()
